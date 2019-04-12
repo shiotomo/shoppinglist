@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated()
         .and()
             .formLogin()
-            .loginPage("/")
+            .loginPage("/login")
             .loginProcessingUrl("/login")
             .successForwardUrl("/dashboard")
             .usernameParameter("username")
