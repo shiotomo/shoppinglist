@@ -1,14 +1,19 @@
 package list.shopping.web.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    /*
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    */
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -23,11 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
             .formLogin()
             .loginPage("/login")
-            .loginProcessingUrl("/login")
+            .loginProcessingUrl("/sign_in")
             .successForwardUrl("/dashboard")
             .usernameParameter("username")
             .passwordParameter("password")
-            .failureUrl("/?error")
+            .failureUrl("/login?error")
             .permitAll()
         .and()
             .logout()
@@ -36,8 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll();
     }
 
+    /*
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("admin").password("{noop}password").roles("ADMIN");
     }
+    */
 }
