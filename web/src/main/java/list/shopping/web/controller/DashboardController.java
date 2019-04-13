@@ -8,6 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class DashboardController {
 
+    /**
+     * ダッシュボードページを表示する
+     *
+     * @param mav
+     * @return
+     */
     @GetMapping
     public ModelAndView index(ModelAndView mav) {
         mav.setViewName("dashboard/index");
