@@ -12,4 +12,6 @@ public class Property {
     @Value("${spring.security.user.password}")
     public String password;
 
+    @Value("${spring.security.user.roles}")
+    public String roles;
 }

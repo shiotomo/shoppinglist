@@ -8,18 +8,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "product")
-public class Product {
+@Table(name = "candidacy")
+public class Candidacy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "product_id")
+    private int productId;
 
-    @Column(name = "status")
-    private String status;
+    @Column(name = "url")
+    private String url;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
