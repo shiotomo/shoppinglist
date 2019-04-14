@@ -10,6 +10,7 @@ requests = "*"
 slackbot = "*"
 mysqlclient = "*"
 sqlalchemy = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
