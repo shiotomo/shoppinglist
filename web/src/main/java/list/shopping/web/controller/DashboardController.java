@@ -20,9 +20,19 @@ public class DashboardController {
      * @return
      */
     @GetMapping
-    public ModelAndView index(ModelAndView mav) {
+    public ModelAndView dashboard(ModelAndView mav) {
         mav.setViewName("dashboard/index");
         mav.addObject("products", productService.selectAll());
         return mav;
+    }
+
+    /**
+     * 商品を追加する
+     *
+     * @return
+     */
+    @PostMapping("/create")
+    public String createProduct() {
+        return "redirect:/dashboard";
     }
 }
