@@ -4,15 +4,35 @@
 <head>
 <meta charset="UTF-8">
 <title>ShoppingList DashBoard</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+  th:href="@{css/style.css}">
 </head>
 <body>
   <header>
-    <nav>
-      <h1>Shopping List Dashboard</h1>
+    <nav class="navbar has-background-light">
+      <p class="navbar-item">Shopping List Dashboard</p>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <form method="post" th:action="@{/logout}">
+              <input type="submit" value="logout"
+                class="bd-tw-button button is-danger">
+            </form>
+          </div>
+        </div>
+      </div>
     </nav>
   </header>
-  <div layout:fragment="content"></div>
+  <div class="columns">
+    <div class="column is-1"></div>
+    <div class="column is-10">
+      <div layout:fragment="content"></div>
+    </div>
+    <div class="column is-1"></div>
+  </div>
 </body>
 </html>

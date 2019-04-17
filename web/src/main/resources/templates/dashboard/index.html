@@ -9,11 +9,8 @@
 <body>
   <div layout:decorator="layout">
     <div layout:fragment="content">
-      <form method="post" th:action="@{/logout}">
-        <input type="submit" value="logout">
-      </form>
-      <h2>商品一覧</h2>
-      <table>
+      <h2 class="title">商品一覧</h2>
+      <table class="table is-responsive">
         <thead>
           <tr>
             <th>商品名</th>
