@@ -10,6 +10,7 @@ import list.shopping.web.service.ProductService;
 @RequestMapping("/dashboard")
 @Controller
 public class DashboardController {
+
     @Autowired
     private ProductService productService;
 
@@ -27,12 +28,11 @@ public class DashboardController {
     }
 
     /**
-     * 商品を追加する
-     *
+     * ダッシュボードに遷移する
      * @return
      */
-    @PostMapping("/create")
-    public String createProduct() {
+    @PostMapping
+    public String redirectDashBoard() {
         return "redirect:/dashboard";
     }
 }

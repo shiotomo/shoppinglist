@@ -29,13 +29,4 @@ public class MainController {
         mav.setViewName("login");
         return mav;
     }
-
-    /**
-     * ダッシュボードに遷移する
-     * @return
-     */
-    @PostMapping("/dashboard")
-    public String redirectDashBoard() {
-        return "redirect:/dashboard";
-    }
 }
