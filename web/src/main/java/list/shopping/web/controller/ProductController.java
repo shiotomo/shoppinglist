@@ -27,11 +27,24 @@ public class ProductController {
     }
 
     /**
+     * 商品を更新する
+     *
+     * @param product
+     * @return
+     */
+    @PutMapping("/{id}")
+    public String update(@ModelAttribute Product product) {
+        productService.update(product);
+        return "redirect:/dashboard/" + product.getId();
+    }
+
+    /**
      * 商品をIDをもとに削除する
      *
      * @param id
      * @return
      */
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) {
         productService.delete(id);
         return "redirect:/dashboard";
