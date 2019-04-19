@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+  <head>
+    <meta charset="UTF-8">
+    <title>ShoppingList DashBoard</title>
+  </head>
+  <body>
+    <div layout:decorator="layout">
+      <div layout:fragment="content">
+        <div>
+          <a href="/dashboard">DashBoard</a>
+        </div>
+        <label>Product</label>
+        <div class="list is-hoverable">
+          <a class="list-item">
+            ID: <span th:text="${product.get().getId()}"></span>
+          </a>
+          <a class="list-item">
+            Name: <span th:text="${product.get().getName()}"></span>
+          </a>
+          <a class="list-item">
+            Created at: <span th:text="${product.get().getCreatedAt()}"></span>
+          </a>
+          <a class="list-item">
+            Updated at: <span th:text="${product.get().getUpdatedAt()}"></span>
+          </a>
+        </div>
+        <div class="list is-hoverable">
+        </div>
+        <hr />
+      </div>
+    </div>
+  </body>
+</html>

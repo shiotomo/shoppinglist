@@ -22,8 +22,22 @@ public class DashboardController {
      */
     @GetMapping
     public ModelAndView dashboard(ModelAndView mav) {
-        mav.setViewName("dashboard/index");
         mav.addObject("products", productService.selectAll());
+        mav.addObject("idList", productService.getIdList());
+        mav.setViewName("dashboard/index");
+        return mav;
+    }
+
+    /**
+     * 製品の詳細
+     *
+     * @param mav
+     * @return
+     */
+    @GetMapping("/{id}")
+    public ModelAndView details(ModelAndView mav, @PathVariable int id) {
+        mav.addObject("product", productService.selectById(id));
+        mav.setViewName("dashboard/show");
         return mav;
     }
 
