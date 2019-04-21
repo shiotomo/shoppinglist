@@ -9,16 +9,13 @@
   <body>
     <div layout:decorator="layout">
       <div layout:fragment="content">
-        <div>
-          <a href="/dashboard">DashBoard</a>
-        </div>
         <a class="button is-small is-primary" id="create-action">Update product</a>
         <a class="button is-small is-danger" id="delete-action">Delete product</a>
         <div class="modal" id="create-modal">
           <div class="modal-background"></div>
           <div class="modal-content">
             <div class="notification is-white">
-              <h3>Add product</h3>
+              <h3>Update product</h3>
               <form th:method="put" th:action="@{/product/{id}(id=${product.get().getId()})}">
                 <label>Product ID <span th:text="${product.get().getId()}"></span></label>
                 <input type="hidden" name="id" th:value="${product.get().getId()}">
@@ -27,7 +24,7 @@
                 <input type="text" name="name" class="input" th:value="${product.get().getName()}" required>
                 <label>Status</label>
                 <input type="text" name="status" class="input" th:value="${product.get().getStatus()}" required>
-                <input type="submit" value="Submit" class="button is-primary">
+                <input type="submit" value="Update" class="button is-primary">
               </form>
             </div>
           </div>
@@ -37,17 +34,17 @@
           <div class="modal-background"></div>
           <div class="modal-content">
             <div class="notification is-white">
-              <h3>Add product</h3>
+              <h3>Delete product</h3>
               <form th:method="delete" th:action="@{/product/{id}(id=${product.get().getId()})}">
                 <label>Delete Product ID <span th:text="${product.get().getId()}"></span></label>
                 <input type="hidden" name="id" th:value="${product.get().getId()}">
-                <input type="submit" value="Submit" class="button is-primary">
+                <br />
+                <input type="submit" value="Delete" class="button is-danger">
               </form>
             </div>
           </div>
           <button class="modal-close is-large" aria-label="close" id="close-delete-action"></button>
         </div>
-        <label>Product</label>
         <div class="list is-hoverable">
           <a class="list-item">
             ID: <span th:text="${product.get().getId()}"></span>
