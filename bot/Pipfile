@@ -8,8 +8,6 @@ verify_ssl = true
 [packages]
 requests = "*"
 slackbot = "*"
-mysqlclient = "*"
-sqlalchemy = "*"
 python-dotenv = "*"
 
 [requires]
