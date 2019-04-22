@@ -5,14 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import list.shopping.web.service.ProductService;
+import list.shopping.web.service.*;
 
 @RequestMapping("/dashboard")
 @Controller
 public class DashboardController {
-
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private CandidacyService candidacyService;
 
     /**
      * ダッシュボードページを表示する
@@ -37,6 +39,7 @@ public class DashboardController {
     @GetMapping("/{id}")
     public ModelAndView details(ModelAndView mav, @PathVariable int id) {
         mav.addObject("product", productService.selectById(id));
+        mav.addObject("candidacies", candidacyService.selectByProductId(id));
         mav.setViewName("dashboard/show");
         return mav;
     }

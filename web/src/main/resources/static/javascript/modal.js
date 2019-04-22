@@ -13,3 +13,12 @@ document.getElementById('delete-action').addEventListener('click', () => {
 document.getElementById('close-delete-action').addEventListener('click', () => {
   document.getElementById('delete-modal').classList.remove('is-active');
 });
+
+document.getElementById('create-url').addEventListener('click', () => {
+  document.getElementById('url-modal').classList.add('is-active');
+});
+
+document.getElementById('close-create-url').addEventListener('click', () => {
+  document.getElementById('url-modal').classList.remove('is-active');
+});
+
