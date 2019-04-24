@@ -46,7 +46,7 @@
               <td th:text="${product.getStatus()}"></td>
               <td th:text="${product.getCreatedAt()}"></td>
               <td th:text="${product.getUpdatedAt()}"></td>
-              <td><a th:href="@{/dashboard/{id}(id=${product.getId()})}" class="button is-small is-info">Detail</a></td>
+              <td><a th:href="@{/dashboard/{productId}(productId=${product.getId()})}" class="button is-small is-info">Detail</a></td>
             </tr>
           </tbody>
         </table>

@@ -36,10 +36,11 @@ public class DashboardController {
      * @param mav
      * @return
      */
-    @GetMapping("/{id}")
-    public ModelAndView details(ModelAndView mav, @PathVariable int id) {
-        mav.addObject("product", productService.selectById(id));
-        mav.addObject("candidacies", candidacyService.selectByProductId(id));
+    @GetMapping("/{productId}")
+    public ModelAndView details(ModelAndView mav, @PathVariable int productId) {
+        mav.addObject("product", productService.selectById(productId));
+        mav.addObject("candidacies", candidacyService.selectByProductId(productId));
+        mav.addObject("candidacyIdList", candidacyService.getIdListByProductId(productId));
         mav.setViewName("dashboard/show");
         return mav;
     }

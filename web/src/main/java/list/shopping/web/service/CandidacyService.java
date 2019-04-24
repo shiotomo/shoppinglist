@@ -1,7 +1,7 @@
 package list.shopping.web.service;
 
 import java.sql.Timestamp;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,4 +48,16 @@ public class CandidacyService {
         candidacyRepository.deleteById(id);
     }
 
+    /**
+     * ProductIdに紐付いた候補のidリストを返却する
+     *
+     * @param productId
+     * @return
+     */
+    public List<Integer> getIdListByProductId(int productId) {
+        val idList = new ArrayList<Integer>();
+        val candidacies = candidacyRepository.findByProductId(productId);
+        candidacies.forEach(candidacy-> idList.add(candidacy.getId()));
+        return idList;
+    }
 }
