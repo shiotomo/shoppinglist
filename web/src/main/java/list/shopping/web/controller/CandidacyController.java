@@ -34,6 +34,7 @@ public class CandidacyController {
      */
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable int id, @PathVariable int productId) {
+        candidacyService.delete(id);
         return "redirect:/dashboard/" + productId;
     }
 }

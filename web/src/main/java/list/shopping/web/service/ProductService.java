@@ -7,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import list.shopping.web.entity.Product;
-import list.shopping.web.repository.ProductRepository;
+import list.shopping.web.repository.*;
 import lombok.val;
 
 @Service
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CandidacyRepository candidacyRepository;
 
     public List<Product> selectAll() {
         return productRepository.findAll();
@@ -50,6 +53,7 @@ public class ProductService {
      * @param id
      */
     public void delete(int id) {
+        candidacyRepository.deleteByProductId(id);
         productRepository.deleteById(id);
     }
 
