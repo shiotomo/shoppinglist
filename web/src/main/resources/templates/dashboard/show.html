@@ -9,8 +9,10 @@
   <body>
     <div layout:decorator="layout">
       <div layout:fragment="content">
+        <br />
         <a class="button is-primary" id="create-action">Update product</a>
         <a class="button is-danger" id="delete-action">Delete product</a>
+        <br />
         <div class="modal" id="create-modal">
           <div class="modal-background"></div>
           <div class="modal-content">
@@ -65,14 +67,14 @@
         <div class="list is-hoverable">
         </div>
         <hr />
-        <label>URL</label>
         <a class="button is-primary" id="create-url">Add</a>
+        <br />
         <div class="modal" id="url-modal">
           <div class="modal-background"></div>
           <div class="modal-content">
             <div class="notification is-white">
               <h3>Add product</h3>
-              <form method="post" th:action="@{/candidacy/create/product/{productId}(productId=${product.get().getId()})}">
+              <form method="post" th:action="@{/product/{productId}/candidacy/create(productId=${product.get().getId()})}">
                 <label>URL</label>
                 <input type="text" name="url" class="input" required>
                 <input type="submit" value="Submit" class="button is-primary">
@@ -86,13 +88,17 @@
           <tr>
             <th>ID</th>
             <th>URL</th>
+            <th>Created at</th>
+            <th>Updated at</th>
             <th>DELETE</th>
           </tr>
           </thead>
           <tbody>
-            <tr th:each="candidacy: ${cadndidacies}">
+            <tr th:each="candidacy: ${candidacies}">
               <td th:text="${candidacy.getId()}"></td>
               <td th:text="${candidacy.getUrl()}"></td>
+              <td th:text="${candidacy.getCreatedAt()}"></td>
+              <td th:text="${candidacy.getUpdatedAt()}"></td>
             </tr>
           </tbody>
         </table>
