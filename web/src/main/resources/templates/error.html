@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>ShoppingList DashBoard</title>
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="columns">
+    <div class="column is-1"></div>
+    <div class="column is-10">
+      <h1 class="title">Shopping List</h1>
+      <p>
+        Error: <span th:text="${error}"></span>
+      </p>
+      <hr />
+      <a th:href="@{/dashboard}">DashBoard</a>
+    </div>
+    <div class="column is-1"></div>
+  </div>
+</body>
+</html>
