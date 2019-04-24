@@ -85,13 +85,13 @@
         </div>
         <table class="table is-responsive">
           <thead>
-          <tr>
-            <th>ID</th>
-            <th>URL</th>
-            <th>Created at</th>
-            <th>Updated at</th>
-            <th>DELETE</th>
-          </tr>
+            <tr>
+              <th>ID</th>
+              <th>URL</th>
+              <th>Created at</th>
+              <th>Updated at</th>
+              <th>DELETE</th>
+            </tr>
           </thead>
           <tbody>
             <tr th:each="candidacy: ${candidacies}">
@@ -99,10 +99,30 @@
               <td th:text="${candidacy.getUrl()}"></td>
               <td th:text="${candidacy.getCreatedAt()}"></td>
               <td th:text="${candidacy.getUpdatedAt()}"></td>
+              <td><a class="button is-danger is-small" th:id="'delete-candidacy-' + ${candidacy.getId()}">Delete</a></td>
+              <div class="modal" id="delete-candidacy-modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                  <div class="notification is-white">
+                    <form th:method="delete" th:action="@{'/product/' + ${product.get().getId()} + '/candidacy/delete/' + ${candidacy.getId()}}">
+                      <label>Delete URL: <span th:text="${candidacy.getUrl()}"></span></label>
+                      <br />
+                      <input type="hidden" name="id" th:value="${candidacy.getId()}">
+                      <input type="submit" value="Delete" class="button is-danger">
+                    </form>
+                  </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close" th:id="'close-delete-candidacy-' + ${candidacy.getId()}"></button>
+              </div>
             </tr>
           </tbody>
         </table>
-        <script src="/javascript/modal.js" th:src="@{/javascript/modal.js}"></script>
+        <script th:inline="javascript">
+          /*<![CDATA[*/
+          const candidacyIdList = /*[[${candidacyIdList}]]*/;
+          /*]]>*/
+        </script>
+        <script src="/javascript/dynamic-modal.js" th:src="@{/javascript/dynamic-modal.js}"></script>
       </div>
     </div>
   </body>
