@@ -9,6 +9,8 @@ verify_ssl = true
 requests = "*"
 slackbot = "*"
 python-dotenv = "*"
+mysqlclient = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
