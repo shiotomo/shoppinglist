@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    ports:
+      - "127.0.0.1:8080:18080"
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    volumes:
+      - ./web:/web
+  bot:
+    build:
+      context: .
+      dockerfile: ./docker/bot/Dockerfile
+    volumes:
+      - ./bot:/bot
+  db:
+    image: mysql:8.0
+    env_file: .env
+    ports:
+      - "127.0.0.1:33063:3306"
+    volumes:
+      - ./mysql8_data:/var/lib/mysql
