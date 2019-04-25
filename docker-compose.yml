@@ -28,8 +28,6 @@ services:
       context: .
       dockerfile: ./docker/db/Dockerfile
     env_file: .env
-    ports:
-      - "13306:3306"
     volumes:
       - ./mysql8_data:/var/lib/mysql
 

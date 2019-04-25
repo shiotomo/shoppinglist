@@ -20,7 +20,7 @@ Webから商品の登録、更新、削除を行うことができます。
 - Python3.7
   - slackBot
   - SQLAlchemy
-- MySQL8.0
+- MySQL5.7
 - Docker
 - Docker Compose
 
@@ -30,6 +30,9 @@ Webから商品の登録、更新、削除を行うことができます。
 
 `.env`
 ```
+MYSQL_DATABASE=ここに利用するMySQLのデータベース名を記述
+MYSQL_USERNAME=ここに利用するMySQLのユーザ名を記述
+MYSQL_PASSWORD=ここに利用するMySQLのパスワードを記述
 MYSQL_ROOT_PASSWORD=ここにMySQLのルートユーザのパスワードを入力
 ```
 
@@ -67,3 +70,8 @@ MYSQL_DATABASE=ここに利用するMySQLのデータベース名を記述
 docker-compose build
 docker-compose up
 ```
+
+## 備考
+
+初めて `docker-compose up`を実行した際webコンテナでエラーが発生する場合があります。  
+その場合は改めて `docker-compose up` を実行することでエラーを解消できます。
