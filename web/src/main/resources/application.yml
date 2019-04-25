@@ -3,9 +3,9 @@ spring:
     url:
     username:
     password:
-    driverClassName:
+    driverClassName: com.mysql.jdbc.Driver
   security:
     user:
       name: 
       password: 
-      roles: 
+      roles: ADMIN
