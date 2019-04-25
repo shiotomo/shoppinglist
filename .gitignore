@@ -1,6 +1,7 @@
 application-dev.yml
+application-production.yml
 .env
-myql8_data
+mysql8_data
 
 # Created by https://www.gitignore.io/api/gradle
 # Edit at https://www.gitignore.io/?templates=gradle

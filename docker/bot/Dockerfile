@@ -1,9 +1,17 @@
-FROM python:3.7-alpine
+FROM python:3.7
 
 RUN mkdir /bot
 WORKDIR /bot
 
-RUN pip install pipenv
-RUN pipenv install
+COPY bot/Pipfile /bot
+COPY bot/Pipfile.lock /bot
 
-CMD pipenv run start
+RUN apt-get update
+RUN apt-get install -y python-dev default-libmysqlclient-dev
+
+COPY bot /bot
+
+RUN pip install pipenv \
+    &&  pipenv install --system
+
+CMD python bot.py
