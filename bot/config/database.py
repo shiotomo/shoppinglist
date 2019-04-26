@@ -18,7 +18,7 @@ class Database():
         mysql_username = os.environ.get("MYSQL_USERNAME")
         mysql_password = os.environ.get("MYSQL_PASSWORD")
         mysql_database = os.environ.get("MYSQL_DATABASE")
-        engine_url = "mysql://" + mysql_username + ":" + mysql_password + "@" + mysql_url + "/" + mysql_database
+        engine_url = "mysql://" + mysql_username + ":" + mysql_password + "@" + mysql_url + "/" + mysql_database + "?charset=utf8"
 
         engine = create_engine(engine_url, echo = True)
         Session = orm.sessionmaker(bind = engine)
