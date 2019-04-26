@@ -29,7 +29,7 @@ services:
       dockerfile: ./docker/db/Dockerfile
     env_file: .env
     volumes:
-      - ./mysql8_data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
 
 networks:
   app-net:
